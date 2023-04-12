@@ -6,7 +6,7 @@ module.exports = {
 		.setDescription('Shows you the ip of the server.')
 		.addStringOption(option =>
 			option.setName('region')
-				.setRequired(true)
+				.setRequired(false)
 				.addChoices(
 					{ name: 'EU', value: 'eu' },
 					{ name: 'NA', value: 'na' }
