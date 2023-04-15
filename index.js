@@ -50,6 +50,8 @@ client.on(Events.InteractionCreate, async interaction => {
 client.on(Events.MessageCreate, message => {
     if (message.channel.id === "1094219232276910142" && (message.author.bot || !message.content.includes("<@&1094218935211147290>"))) {
         message.delete();
+    } else if (message.channel.id === "1096876116624556032" && (message.author.bot || !message.content.includes("<@&1096876294702104618>"))) {
+        message.delete();
     }
 });
 
