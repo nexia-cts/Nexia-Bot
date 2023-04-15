@@ -23,14 +23,14 @@ module.exports = {
         embed.setThumbnail("https://cdn.discordapp.com/icons/1041553022246998087/6a007c32cc01332188bbb3efcab73499.webp?size=80")
         if (region != null && region == "eu") {
             eu = await util.status("nexia.mcserver.us")
-            embed.setDescription(`There are currently \`${eu.players.online}/${eu.players.max}\`\nplayers online. on **EU**.`)
+            embed.setDescription(`There are currently \`${eu.players.online}/${eu.players.max}\`\nplayers online on **EU**.`)
         } else if (region != null && region == "na") {
             na = await util.status("nanexia.mcserver.us");
             embed.setDescription(`There are currently \`${na.players.online}/${na.players.max}\`\nplayers online on **NA**.`)
         } else {
             eu = await util.status("nexia.mcserver.us");
             na = await util.status("nanexia.mcserver.us");
-            embed.setDescription(`There are currently \`${eu.players.online}/${eu.players.max}\` players online on **EU**.\n\nAnd there are currently \`${na.players.online}/${na.players.max}\` online\non **NA**.`)
+            embed.setDescription(`There are currently \`${eu.players.online}/${eu.players.max}\` players online\non **EU**.\n\nAnd there are currently \`${na.players.online}/${na.players.max}\` online\non **NA**.`)
         }
 
         await interaction.reply({ embeds: [embed], ephemeral: true });

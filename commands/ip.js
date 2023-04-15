@@ -25,7 +25,7 @@ module.exports = {
 		} else if (region != null && region == "na") {
 			embed.setDescription("The IP of the **NA** server is:\n`nanexia.mcserver.us`")
 		} else {
-			embed.setDescription("The IP of the **EU** server is:\n`nexia.mcserver.us`\n\nThe IP of the **NA** server is\n`nanexia.mcserver.us`")
+			embed.setDescription("The IP of the **EU** server is:\n`nexia.mcserver.us`\n\nThe IP of the **NA** server is:\n`nanexia.mcserver.us`")
 		}
 
 		await interaction.reply({ embeds: [embed], ephemeral: true });
