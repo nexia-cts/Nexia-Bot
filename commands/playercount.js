@@ -1,9 +1,10 @@
 const { SlashCommandBuilder } = require('discord.js');
+const { EmbedBuilder } = require('@discordjs/builders');
 const util = require('minecraft-server-util')
 
 module.exports = {
     data: new SlashCommandBuilder()
-        .setName('playerlist')
+        .setName('playercount')
         .setDescription('Shows you how many players are online on the server.')
         .addStringOption(option =>
             option.setName('region')
@@ -14,8 +15,6 @@ module.exports = {
                 )),
     async execute(interaction) {
         const region = interaction.options.getString('region');
-        eu = await util.status("nexia.mcserver.us")
-        na = await util.status("nanexia.mcserver.us");
         const embed = new EmbedBuilder()
         embed.setColor([144, 81, 202])
         embed.setTimestamp(Date.now())
@@ -23,11 +22,15 @@ module.exports = {
         embed.setTitle(`Nexia  •  Player count`)
         embed.setThumbnail("https://cdn.discordapp.com/icons/1041553022246998087/6a007c32cc01332188bbb3efcab73499.webp?size=80")
         if (region != null && region == "eu") {
-            embed.setDescription(`There are currently \`${eu.players.online}/${eu.players.max}\` online. on **EU**.`)
+            eu = await util.status("nexia.mcserver.us")
+            embed.setDescription(`There are currently \`${eu.players.online}/${eu.players.max}\`\nplayers online. on **EU**.`)
         } else if (region != null && region == "na") {
-            embed.setDescription(`There are currently \`${na.players.online}/${na.players.max}\` online on **NA**.`)
+            na = await util.status("nanexia.mcserver.us");
+            embed.setDescription(`There are currently \`${na.players.online}/${na.players.max}\`\nplayers online on **NA**.`)
         } else {
-            embed.setDescription(`There are currently \`${eu.players.online}/${eu.players.max}\` online. on **EU**.\n\nAnd there are currently \`${na.players.online}/${na.players.max}\` online on **NA**.`)
+            eu = await util.status("nexia.mcserver.us");
+            na = await util.status("nanexia.mcserver.us");
+            embed.setDescription(`There are currently \`${eu.players.online}/${eu.players.max}\` players online on **EU**.\n\nAnd there are currently \`${na.players.online}/${na.players.max}\` online\non **NA**.`)
         }
 
         await interaction.reply({ embeds: [embed], ephemeral: true });
