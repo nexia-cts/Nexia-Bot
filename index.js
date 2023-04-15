@@ -21,7 +21,7 @@ const { clientId, guildId, token } = require('./config.json');
 client.commands = new Collection();
 
 
-client.on('ready', () => {
+client.on(Events.ClientReady, () => {
     console.log(`Logged in as ${client.user.tag}!`);
 });
 

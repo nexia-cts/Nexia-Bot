@@ -1,3 +1,4 @@
+const { EmbedBuilder } = require('@discordjs/builders');
 const { SlashCommandBuilder } = require('discord.js');
 
 module.exports = {
@@ -13,12 +14,20 @@ module.exports = {
 				)),
 	async execute(interaction) {
 		const region = interaction.options.getString('region');
+		const embed = new EmbedBuilder()
+		embed.setTimestamp(Date.now())
+		embed.setColor([144, 81, 202])
+		embed.setTitle(`Nexia  •  IP`)
+		embed.setFooter({ text: "Use /playercount :)" })
+		embed.setThumbnail("https://cdn.discordapp.com/icons/1041553022246998087/6a007c32cc01332188bbb3efcab73499.webp?size=80")
 		if (region != null && region == "eu") {
-			await interaction.reply({ content: '**EU:** nexia.mcserver.us', ephemeral: true });
+			embed.setDescription("The IP of the **EU** server is:\n`nexia.mcserver.us`")
 		} else if (region != null && region == "na") {
-			await interaction.reply({ content: '**NA:** nanexia.mcserver.us', ephemeral: true });
+			embed.setDescription("The IP of the **NA** server is:\n`nanexia.mcserver.us`")
 		} else {
-			await interaction.reply({ content: '**EU:** nexia.mcserver.us\n**NA:** nanexia.mcserver.us', ephemeral: true });
+			embed.setDescription("The IP of the **EU** server is:\n`nexia.mcserver.us`\n\nThe IP of the **NA** server is\n`nanexia.mcserver.us`")
 		}
+
+		await interaction.reply({ embeds: [embed], ephemeral: true });
 	},
 };
