@@ -28,6 +28,18 @@ const commands = [
             },
         ]
     },
+    {
+        "name": 'playerlist',
+        "description": 'Shows you the players are online on the server.',
+        "options": [
+            {
+                "name": "region",
+                "description": "Server Region",
+                "type": 3,
+                "required": false
+            },
+        ]
+    },
     /*
     {
         "name": 'test',
