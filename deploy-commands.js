@@ -28,6 +28,12 @@ const commands = [
             },
         ]
     },
+    /*
+    {
+        "name": 'test',
+        "description": 'frfr',
+    },
+    */
 ];
 // Grab all the command files from the commands directory you created earlier
 const commandsPath = path.join(__dirname, 'commands');

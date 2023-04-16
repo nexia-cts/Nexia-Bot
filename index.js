@@ -1,4 +1,4 @@
-const { Client, Collection, Events, GatewayIntentBits } = require('discord.js');
+const { Client, Collection, Events, GatewayIntentBits, EmbedBuilder } = require('discord.js');
 
 const fs = require('node:fs');
 const path = require('node:path');
@@ -17,7 +17,7 @@ if (!fs.existsSync(config_path)) {
         , null, 2), "utf-8")
 }
 
-const { clientId, guildId, token } = require('./config.json');
+const { token } = require('./config.json');
 client.commands = new Collection();
 
 
@@ -25,8 +25,33 @@ client.on(Events.ClientReady, () => {
     console.log(`Logged in as ${client.user.tag}!`);
 });
 
+const buttonCooldown = new Set()
 
 client.on(Events.InteractionCreate, async interaction => {
+    if (interaction.isButton()) {
+        let cooldown = 900000 // 15 minutes 
+        // counted in ms (1000 ms = 1 second)
+        setTimeout(() => buttonCooldown.delete(interaction.user.id), cooldown)
+        if (buttonCooldown.has(interaction.user.id)) {
+            await interaction.reply({ content: `You are currently on cooldown!`, ephemeral: true });
+        }
+
+        const embed = new EmbedBuilder()
+        embed.setTimestamp(Date.now())
+        embed.setColor([144, 81, 202])
+        embed.setTitle(`Nexia  •  Join Ping`)
+        embed.setDescription(`Requested by\n<@${interaction.user.id}>`)
+        embed.setThumbnail("https://cdn.discordapp.com/icons/1041553022246998087/6a007c32cc01332188bbb3efcab73499.webp?size=64")
+
+        if (interaction.customId === "eu" && !buttonCooldown.has(interaction.user.id)) {
+            await interaction.reply({ content: "<@&1096876294702104618>", embeds: [embed] });
+            buttonCooldown.add(interaction.user.id)
+        }
+        if (interaction.customId === "na" && !buttonCooldown.has(interaction.user.id)) {
+            await interaction.reply({ content: "<@&1094218935211147290>", embeds: [embed] });
+            buttonCooldown.add(interaction.user.id)
+        }
+    }
     if (!interaction.isChatInputCommand()) return;
 
     const command = interaction.client.commands.get(interaction.commandName);
@@ -47,13 +72,11 @@ client.on(Events.InteractionCreate, async interaction => {
     }
 });
 
+/*
 client.on(Events.MessageCreate, message => {
-    if (message.channel.id === "1094219232276910142" && (message.author.bot || !message.content.includes("<@&1094218935211147290>"))) {
-        message.delete();
-    } else if (message.channel.id === "1096876116624556032" && (message.author.bot || !message.content.includes("<@&1096876294702104618>"))) {
-        message.delete();
-    }
+
 });
+*/
 
 const commandsPath = path.join(__dirname, 'commands');
 const commandFiles = fs.readdirSync(commandsPath).filter(file => file.endsWith('.js'));
