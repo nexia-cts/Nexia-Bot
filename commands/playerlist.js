@@ -25,17 +25,17 @@ module.exports = {
             eu = await util.get(`https://api.mcstatus.io/v2/status/java/nexia.mcserver.us:25565`)
             if (eu.data.players.online > 0) {
                 const euList = eu.data.players.list ? "\n\`\`\`" + eu.data.players.list.map(p => ` ${p.name_clean} `).join('\r\n') + "\`\`\`" : "";
-                embed.setDescription(`**EU** Playerlist:` + euList)
+                embed.setDescription(`**EU** Playerlist: ` + euList)
             } else {
-                embed.setDescription(`**EU** Playerlist:\n\`\`\`No players\`\`\``)
+                embed.setDescription(`**EU** Playerlist: \n\`\`\`No players\`\`\``)
             }
         } else if (region != null && region == "na") {
             na = await util.get(`https://api.mcstatus.io/v2/status/java/nanexia.mcserver.us:25565`)
             if (na.data.players.online > 0) {
                 const naList = na.data.players.list ? "\n\`\`\`" + na.data.players.list.map(p => ` ${p.name_clean} `).join('\r\n') + "\`\`\`" : "";
-                embed.setDescription(`**NA** Playerlist:` + naList)
+                embed.setDescription(`**NA** Playerlist: ` + naList)
             } else {
-                embed.setDescription(`**NA** Playerlist:\n\`\`\`No players\`\`\``)
+                embed.setDescription(`**NA** Playerlist: \n\`\`\`No players\`\`\``)
             }
 
         } else {
@@ -49,7 +49,7 @@ module.exports = {
             if (na.data.players.online > 0) {
                 naList = na.data.players.list ? "\n\`\`\`" + na.data.players.list.map(p => ` ${p.name_clean} `).join('\r\n') + "\`\`\`" : "";
             }
-            embed.setDescription(`**EU** Playerlist:` + euList + `\n**NA** Playerlist:` + naList)
+            embed.setDescription(`**EU** Playerlist: ` + euList + `\n**NA** Playerlist: ` + naList)
         }
 
         await interaction.reply({ embeds: [embed], ephemeral: true });

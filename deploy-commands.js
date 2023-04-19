@@ -12,7 +12,17 @@ const commands = [
                 "name": "region",
                 "description": "Server Region",
                 "type": 3,
-                "required": false
+                "choices": [
+                    {
+                        "name": "EU",
+                        "value": "eu",
+                    },
+                    {
+                        "name": "NA",
+                        "value": "na",
+                    },
+                ],
+                "required": false,
             },
         ]
     },
@@ -24,6 +34,16 @@ const commands = [
                 "name": "region",
                 "description": "Server Region",
                 "type": 3,
+                "choices": [
+                    {
+                        "name": "EU",
+                        "value": "eu",
+                    },
+                    {
+                        "name": "NA",
+                        "value": "na",
+                    },
+                ],
                 "required": false
             },
         ]
@@ -36,6 +56,16 @@ const commands = [
                 "name": "region",
                 "description": "Server Region",
                 "type": 3,
+                "choices": [
+                    {
+                        "name": "EU",
+                        "value": "eu",
+                    },
+                    {
+                        "name": "NA",
+                        "value": "na",
+                    },
+                ],
                 "required": false
             },
         ]
