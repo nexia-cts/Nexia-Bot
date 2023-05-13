@@ -19,7 +19,7 @@ module.exports = {
 		embed.setColor([144, 81, 202])
 		embed.setTitle(`Nexia  •  IP`)
 		embed.setFooter({ text: "Use /playercount :)" })
-		embed.setThumbnail("https://cdn.discordapp.com/icons/1041553022246998087/6a007c32cc01332188bbb3efcab73499.webp?size=80")
+		embed.setThumbnail("https://notcoded.needs.rest/nexia.png")
 		if (region != null && region == "eu") {
 			embed.setDescription("The IP of the **EU** server is:\n`nexia.mcserver.us`")
 		} else if (region != null && region == "na") {

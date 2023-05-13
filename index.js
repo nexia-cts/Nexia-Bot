@@ -41,7 +41,7 @@ client.on(Events.InteractionCreate, async interaction => {
         embed.setColor([144, 81, 202])
         embed.setTitle(`Nexia  •  Join Ping`)
         embed.setDescription(`Requested by\n<@${interaction.user.id}>`)
-        embed.setThumbnail("https://cdn.discordapp.com/icons/1041553022246998087/6a007c32cc01332188bbb3efcab73499.webp?size=64")
+        embed.setThumbnail("https://notcoded.needs.rest/nexia.png")
 
         if (interaction.customId === "eu" && !buttonCooldown.has(interaction.user.id)) {
             await interaction.reply({ content: "<@&1096876294702104618>", embeds: [embed] });

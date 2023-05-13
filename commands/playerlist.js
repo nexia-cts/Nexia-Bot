@@ -20,7 +20,7 @@ module.exports = {
         embed.setTimestamp(Date.now())
         embed.setFooter({ text: "Use /ip :)" })
         embed.setTitle(`Nexia  •  Player list`)
-        embed.setThumbnail("https://cdn.discordapp.com/icons/1041553022246998087/6a007c32cc01332188bbb3efcab73499.webp?size=80")
+        embed.setThumbnail("https://notcoded.needs.rest/nexia.png")
         if (region != null && region == "eu") {
             eu = await util.get(`https://api.mcstatus.io/v2/status/java/nexia.mcserver.us:25565`)
             if (eu.data.players.online > 0) {
