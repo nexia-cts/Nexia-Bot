@@ -1,9 +1,9 @@
-const { Client, Collection, Events, GatewayIntentBits, EmbedBuilder } = require('discord.js');
+const { Client, Collection, Events, GatewayIntentBits, EmbedBuilder, Guild } = require('discord.js');
 
 const fs = require('node:fs');
 const path = require('node:path');
 
-const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages, GatewayIntentBits.MessageContent] });
+const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMembers, GatewayIntentBits.GuildMessages, GatewayIntentBits.MessageContent] });
 
 const config_path = "./config.json"
 
@@ -24,6 +24,17 @@ client.commands = new Collection();
 client.on(Events.ClientReady, () => {
     console.log(`Logged in as ${client.user.tag}!`);
 });
+
+client.on(Events.GuildMemberUpdate, (oldMember, newMember) => {
+    var supporterID = '1107264322951979110'
+
+    if (!oldMember.premiumSince && newMember.premiumSince && !newMember.roles.cache.has(supporterID)) {
+        newMember.roles.add(supporterID)
+    } else if (oldMember.premiumSince && !newMember.premiumSince && newMember.roles.cache.has(supporterID)) {
+        newMember.roles.remove(supporterID)
+    }
+});
+
 
 const buttonCooldown = new Set()
 
@@ -77,6 +88,8 @@ client.on(Events.MessageCreate, message => {
 
 });
 */
+
+
 
 const commandsPath = path.join(__dirname, 'commands');
 const commandFiles = fs.readdirSync(commandsPath).filter(file => file.endsWith('.js'));
