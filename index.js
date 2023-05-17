@@ -1,4 +1,4 @@
-const { Client, Collection, Events, GatewayIntentBits, EmbedBuilder, Guild } = require('discord.js');
+const { Client, Collection, Events, GatewayIntentBits, EmbedBuilder } = require('discord.js');
 
 const fs = require('node:fs');
 const path = require('node:path');
@@ -88,8 +88,6 @@ client.on(Events.MessageCreate, message => {
 
 });
 */
-
-
 
 const commandsPath = path.join(__dirname, 'commands');
 const commandFiles = fs.readdirSync(commandsPath).filter(file => file.endsWith('.js'));
