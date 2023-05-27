@@ -72,6 +72,27 @@ const commands = [
     },
     /*
     {
+        "name": 'sendmsg',
+        "description": 'Sends a message in the current channel (developer only)',
+        "options": [
+            {
+                "name": "msg",
+                "description": "Message to send",
+                "type": 3,
+                "default_member_permissions": "0x0000000000100000",
+                "choices": [
+                    {
+                        "name": "Join Ping",
+                        "value": "joinping",
+                    },
+                ],
+                "required": true
+            },
+        ]
+    },
+    */
+    /*
+    {
         "name": 'test',
         "description": 'frfr',
     },
@@ -79,7 +100,7 @@ const commands = [
 ];
 // Grab all the command files from the commands directory you created earlier
 const commandsPath = path.join(__dirname, 'commands');
-const commandFiles = fs.readdirSync(commandsPath).filter(file => file.endsWith('.js'));
+//const commandFiles = fs.readdirSync(commandsPath).filter(file => file.endsWith('.js'));
 
 /*
 for (const file of commandFiles) {

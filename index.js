@@ -51,15 +51,18 @@ client.on(Events.InteractionCreate, async interaction => {
         embed.setTimestamp(Date.now())
         embed.setColor([144, 81, 202])
         embed.setTitle(`Nexia  •  Join Ping`)
+        embed.setFooter({ text: "Check the pinned message, to ping the roles" })
         embed.setDescription(`Requested by\n<@${interaction.user.id}>`)
         embed.setThumbnail("https://notcoded.needs.rest/r/nexia.png")
 
         if (interaction.customId === "eu" && !buttonCooldown.has(interaction.user.id)) {
-            await interaction.reply({ content: "<@&1096876294702104618>", embeds: [embed] });
+            await interaction.channel.send({ content: "<@&1096876294702104618>", embeds: [embed] });
+            await interaction.deferUpdate();
             buttonCooldown.add(interaction.user.id)
         }
         if (interaction.customId === "na" && !buttonCooldown.has(interaction.user.id)) {
-            await interaction.reply({ content: "<@&1094218935211147290>", embeds: [embed] });
+            await interaction.channel.send({ content: "<@&1094218935211147290>", embeds: [embed] });
+            await interaction.deferUpdate();
             buttonCooldown.add(interaction.user.id)
         }
     }
