@@ -1,11 +1,12 @@
-const { SlashCommandBuilder, ButtonBuilder, ButtonStyle, ActionRowBuilder } = require('discord.js');
+const { SlashCommandBuilder, ButtonBuilder, ButtonStyle, ActionRowBuilder, PermissionFlagsBits, Emoji } = require('discord.js');
 const { EmbedBuilder } = require('@discordjs/builders');
 const util = require('axios')
 
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('sendmsg')
-        .setDescription('Sends a message in the current channel (developer only)')
+        .setDescription('Sends a message in the current channel (developer only).')
+        .setDefaultMemberPermissions(PermissionFlagsBits.Administrator)
         .addStringOption(option =>
             option.setName('msg')
                 .setRequired(false)
@@ -26,20 +27,21 @@ module.exports = {
 
             const eu = new ButtonBuilder()
                 .setCustomId('eu')
-                .setLabel('EU Ping')
+                .setLabel('| EU Ping')
+                .setEmoji('🇪🇺')
                 .setStyle(ButtonStyle.Primary);
-
 
             const na = new ButtonBuilder()
                 .setCustomId('na')
-                .setLabel('NA Ping')
-                .setStyle(ButtonStyle.Secondary);
+                .setLabel('| NA Ping')
+                .setEmoji('🇺🇸')
+                .setStyle(ButtonStyle.Danger);
 
             const row = new ActionRowBuilder()
                 .addComponents(eu, na);
 
             await interaction.channel.send({ embeds: [embed], components: [row] });
         }
-        //await interaction.channel.send({ embeds: [embed] });
+        await interaction.reply({ content: "Sent message.", ephemeral: true });
     },
 };

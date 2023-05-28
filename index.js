@@ -42,10 +42,6 @@ client.on(Events.InteractionCreate, async interaction => {
     if (interaction.isButton()) {
         let cooldown = 900000 // 15 minutes 
         // counted in ms (1000 ms = 1 second)
-        setTimeout(() => buttonCooldown.delete(interaction.user.id), cooldown)
-        if (buttonCooldown.has(interaction.user.id)) {
-            await interaction.reply({ content: `You are currently on cooldown!`, ephemeral: true });
-        }
 
         const embed = new EmbedBuilder()
         embed.setTimestamp(Date.now())
@@ -54,6 +50,15 @@ client.on(Events.InteractionCreate, async interaction => {
         embed.setFooter({ text: "Check the pinned message, to ping the roles" })
         embed.setDescription(`Requested by\n<@${interaction.user.id}>`)
         embed.setThumbnail("https://notcoded.needs.rest/r/nexia.png")
+
+        setTimeout(() => buttonCooldown.delete(interaction.user.id), cooldown)
+        if (buttonCooldown.has(interaction.user.id)) {
+
+            embed.setFooter({ text: "Do you have patience?" })
+            embed.setDescription(`You are currently on cooldown!\nMaybe you can wait?`)
+
+            await interaction.reply({ embeds: [embed], ephemeral: true });
+        }
 
         if (interaction.customId === "eu" && !buttonCooldown.has(interaction.user.id)) {
             await interaction.channel.send({ content: "<@&1096876294702104618>", embeds: [embed] });
