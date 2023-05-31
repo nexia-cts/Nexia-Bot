@@ -23,14 +23,20 @@ module.exports = {
         embed.setThumbnail("https://notcoded.needs.rest/r/nexia.png")
         if (region != null && region == "eu") {
             eu = await util.status("nexia.mcserver.us")
-            embed.setDescription(`There are currently \`${eu.players.online}/${eu.players.max}\`\nplayers online on **EU**.`)
+            if (eu != null) {
+                embed.setDescription(`There are currently \`${eu.players.online}/${eu.players.max}\`\nplayers online on **EU**.`)
+            }
         } else if (region != null && region == "na") {
             na = await util.status("nanexia.mcserver.us");
-            embed.setDescription(`There are currently \`${na.players.online}/${na.players.max}\`\nplayers online on **NA**.`)
+            if (na != null) {
+                embed.setDescription(`There are currently \`${na.players.online}/${na.players.max}\`\nplayers online on **NA**.`)
+            }
         } else {
             eu = await util.status("nexia.mcserver.us");
             na = await util.status("nanexia.mcserver.us");
-            embed.setDescription(`There are currently \`${eu.players.online}/${eu.players.max}\` players online\non **EU**.\n\nAnd there are currently \`${na.players.online}/${na.players.max}\` online\non **NA**.`)
+            if (eu != null && na != null) {
+                embed.setDescription(`There are currently \`${eu.players.online}/${eu.players.max}\` players online\non **EU**.\n\nAnd there are currently \`${na.players.online}/${na.players.max}\` online\non **NA**.`)
+            }
         }
 
         await interaction.reply({ embeds: [embed], ephemeral: true });

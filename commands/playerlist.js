@@ -42,11 +42,11 @@ module.exports = {
             eu = await util.get(`https://api.mcstatus.io/v2/status/java/nexia.mcserver.us:25565`)
             na = await util.get(`https://api.mcstatus.io/v2/status/java/nanexia.mcserver.us:25565`)
             let euList = `\`\`\`No players\`\`\``
-            if (eu.data.players.online > 0) {
+            if (eu.data.players.online != null && eu.data.players.online > 0) {
                 euList = eu.data.players.list ? "\n\`\`\`" + eu.data.players.list.map(p => ` ${p.name_clean} `).join('\r\n') + "\`\`\`" : "";
             }
             let naList = `\`\`\`No players\`\`\``
-            if (na.data.players.online > 0) {
+            if (na.data.players.online != null && na.data.players.online > 0) {
                 naList = na.data.players.list ? "\n\`\`\`" + na.data.players.list.map(p => ` ${p.name_clean} `).join('\r\n') + "\`\`\`" : "";
             }
             embed.setDescription(`**EU** Playerlist: ` + euList + `\n**NA** Playerlist: ` + naList)
