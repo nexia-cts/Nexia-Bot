@@ -85,6 +85,10 @@ const commands = [
                         "name": "Join Ping",
                         "value": "joinping",
                     },
+                    {
+                        "name": "Rules",
+                        "value": "rules",
+                    },
                 ],
                 "required": true
             },

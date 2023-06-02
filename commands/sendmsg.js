@@ -11,7 +11,10 @@ module.exports = {
             option.setName('msg')
                 .setRequired(false)
                 .addChoices(
-                    { name: 'joinping', value: 'joinping' },
+                    { name: 'Join Ping', value: 'joinping' },
+                )
+                .addChoices(
+                    { name: 'Rules', value: 'rules' },
                 )),
     async execute(interaction) {
         const message = interaction.options.getString('msg');
@@ -39,6 +42,25 @@ module.exports = {
 
             const row = new ActionRowBuilder()
                 .addComponents(eu, na);
+
+            await interaction.channel.send({ embeds: [embed], components: [row] });
+        }
+        if (message != null && message == "rules") {
+            embed.setTitle(`Nexia  •  Rules`)
+            embed.setDescription(`Click the buttons to view either the **Discord** or the **Minecraft** rules.`)
+
+            const discord = new ButtonBuilder()
+                .setCustomId('discord')
+                .setLabel('Discord')
+                .setStyle(ButtonStyle.Primary);
+
+            const minecraft = new ButtonBuilder()
+                .setCustomId('minecraft')
+                .setLabel('Minecraft')
+                .setStyle(ButtonStyle.Success);
+
+            const row = new ActionRowBuilder()
+                .addComponents(discord, minecraft);
 
             await interaction.channel.send({ embeds: [embed], components: [row] });
         }
