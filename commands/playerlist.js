@@ -41,10 +41,11 @@ module.exports = {
         } else {
             eu = await util.get(`https://api.mcstatus.io/v2/status/java/nexia.mcserver.us:25565`)
             let euList = `\`\`\`No players\`\`\``
+            let naList = euList
             if (eu.data.players != null && eu.data.players.online > 0) {
                 euList = eu.data.players.list ? "\n\`\`\`" + eu.data.players.list.map(p => ` ${p.name_clean} `).join('\r\n') + "\`\`\`" : "";
             }
-            let naList = euList
+
             na = await util.get(`https://api.mcstatus.io/v2/status/java/nanexia.mcserver.us:25565`)
             if (na.data.players != null && na.data.players.online > 0) {
                 naList = na.data.players.list ? "\n\`\`\`" + na.data.players.list.map(p => ` ${p.name_clean} `).join('\r\n') + "\`\`\`" : "";
