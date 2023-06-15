@@ -105,7 +105,7 @@ client.on(Events.InteractionCreate, async interaction => {
                     { name: '**1. No illegal activity. Follow the discord guidelines.**', value: 'https://discord.com/guidelines' },
                     { name: '**2. No pornography or NSFW (Not safe for work) content/media/messages.**', value: 'Do not send any porn or otherwise sensitive media and messages.' },
                     { name: '**3. Be respectful. No toxicity and/or annoying behaviour.**', value: 'Please be respectful. Hateful and/or insulting behaviour is not tolerated.' },
-                    { name: '**4. No advertising.**', value: 'Advertising anything, including other Minecraft/Discord servers, is not permitted.' },
+                    { name: '**4. No advertising unless in <#1097191136235364362>.**', value: 'Advertising anything, including other Minecraft/Discord servers, is not permitted unless in the <#1097191136235364362> channel.' },
                     { name: '**5. Use the appropriate channels on the server.**', value: 'All channels (unless self-explanatory) have a description that tells you what they should be used for.' },
                     { name: '**6. Avoid heated arguments.**', value: 'Please try to keep all discussions friendly. No insulting the other "side". This relates to rule 3.' },
                     { name: '**7. No discussion about sensitive topics or politics.**', value: 'Discussion about sensitive topics or politics are prohibited.' }
