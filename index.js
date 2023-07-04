@@ -27,11 +27,30 @@ client.on(Events.ClientReady, () => {
 
 client.on(Events.GuildMemberUpdate, (oldMember, newMember) => {
     var supporterID = '1107264322951979110'
+    var patreonID = '1125368330245636096'
+    var boosterID = '1064928408510943373'
+    var supporterPlusID = '1125391407616630845'
 
-    if (!oldMember.premiumSince && newMember.premiumSince && !newMember.roles.cache.has(supporterID)) {
+    var hasBoosted = newMember.roles.cache.has(boosterID)
+    var hasPatreon = newMember.roles.cache.has(patreonID)
+
+    var hasSupporterPlus = hasBoosted && hasPatreon
+
+    if (hasBoosted || hasPatreon) {
         newMember.roles.add(supporterID)
-    } else if (oldMember.premiumSince && !newMember.premiumSince && newMember.roles.cache.has(supporterID)) {
-        newMember.roles.remove(supporterID)
+        if (hasSupporterPlus) {
+            newMember.roles.add(supporterPlusID)
+        } else if (newMember.roles.cache.has(supporterPlusID)) {
+            newMember.roles.remove(supporterPlusID)
+        }
+    } else if (!hasBoosted || !hasPatreon) {
+        if (!hasBoosted && !hasPatreon) {
+            newMember.roles.remove(supporterID)
+        }
+
+        if (newMember.roles.cache.has(supporterPlusID)) {
+            newMember.roles.remove(supporterPlusID)
+        }
     }
 });
 
