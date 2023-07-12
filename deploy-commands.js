@@ -89,9 +89,14 @@ const commands = [
                         "name": "Rules",
                         "value": "rules",
                     },
+                    {
+                        "name": "Info",
+                        "value": "info",
+                    }
                 ],
                 "required": true
             },
+
         ]
     },
     */
@@ -104,9 +109,10 @@ const commands = [
 ];
 // Grab all the command files from the commands directory you created earlier
 const commandsPath = path.join(__dirname, 'commands');
-//const commandFiles = fs.readdirSync(commandsPath).filter(file => file.endsWith('.js'));
 
 /*
+const commandFiles = fs.readdirSync(commandsPath).filter(file => file.endsWith('.js'));
+
 for (const file of commandFiles) {
     const filePath = path.join(commandsPath, file);
     const command = require(filePath);

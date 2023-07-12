@@ -1,4 +1,4 @@
-const { SlashCommandBuilder, ButtonBuilder, ButtonStyle, ActionRowBuilder, PermissionFlagsBits } = require('discord.js');
+const { SlashCommandBuilder, ButtonBuilder, ButtonStyle, ActionRowBuilder, PermissionFlagsBits, Attachment } = require('discord.js');
 const { EmbedBuilder } = require('@discordjs/builders');
 
 module.exports = {
@@ -46,6 +46,7 @@ module.exports = {
         }
         if (message != null && message == "rules") {
             embed.setTitle(`Nexia  •  Rules`)
+            embed.setThumbnail('attachment://nexia-rules.png');
             embed.setDescription(`Click the buttons to view either the **Discord** or the **Minecraft** rules.`)
 
             const discord = new ButtonBuilder()
@@ -61,7 +62,19 @@ module.exports = {
             const row = new ActionRowBuilder()
                 .addComponents(discord, minecraft);
 
-            await interaction.channel.send({ embeds: [embed], components: [row] });
+            await interaction.channel.send({ embeds: [embed], files: ['./images/nexia-rules.png'], components: [row] });
+        }
+        if (message != null && message == "info") {
+            embed.setTitle(`Nexia  •  Info`)
+            embed.setThumbnail('attachment://nexia-info.png');
+            embed.setDescription(`Here you will get information about the server.`)
+
+            embed.addFields(
+                { name: 'Minecraft', value: 'The IPs of the minecraft servers are:\n\n**EU**: `nexia.mcserver.us`\n**NA**: `nanexia.mcserver.us`\n**Version**: `Combat Test Snapshot 8c`\n\nYou may also use </playerlist:1097209692285046894> or </playercount:1096826365883449444>.' },
+                { name: 'Discord', value: 'The discord server invite link is:\n**https://discord.gg/uUC3zCZ2S7**' }
+            )
+
+            await interaction.channel.send({ embeds: [embed], files: ['./images/nexia-info.png'] });
         }
         await interaction.reply({ content: "Sent message.", ephemeral: true });
     },
