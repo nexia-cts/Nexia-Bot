@@ -41,6 +41,10 @@ client.on(Events.ClientReady, async () => {
                 console.info(`${member.user.username} (${member.user.id}): Removed Supporter Role [-]`)
             }
         });
+
+        console.log("Successfully removed/added all Supporter Roles!")
+
+        process.exit()
     } catch (err) {
         console.error(err);
     }
