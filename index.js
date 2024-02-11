@@ -120,6 +120,7 @@ client.on(Events.InteractionCreate, async interaction => {
             if (interaction.customId === "minecraft") {
                 embed.setTitle(`Nexia  •  Minecraft Server Rules`)
                 embed.setThumbnail("https://notcoded.needs.rest/r/minecraft_small.png")
+                embed.setColor([107, 191, 54])
                 embed.setDescription("By playing on the minecraft server, you agree to follow the rules. Breaking them will result in punishment like muting, kicking or banning.")
                 embed.addFields(
                     { name: '**1. No hacking, cheating, griefing or exploiting bugs.**', value: 'Using any client modifications or hack clients that give an unfair advantage against others or abusing unintended behaviour is not allowed.' },
@@ -136,6 +137,7 @@ client.on(Events.InteractionCreate, async interaction => {
             if (interaction.customId === "discord") {
                 embed.setTitle(`Nexia  •  Discord Server Rules`)
                 embed.setThumbnail("https://media.pocketgamer.biz/2021/5/110514/discord-new-logo-2021-r225x225.jpg")
+                embed.setColor([88, 101, 242])
                 embed.setDescription("By chatting on this server, you agree to follow the rules. Breaking them will result in punishment like muting, kicking or banning.")
                 embed.addFields(
                     { name: '**1. No illegal activity. Follow the discord guidelines.**', value: 'https://discord.com/guidelines' },
