@@ -12,12 +12,15 @@ if (!fs.existsSync(config_path)) {
         {
             "token": "",
             "guildId": "",
-            "clientId": ""
+            "clientId": "",
+            "discordInvite": "",
+            "euIP": "",
+            "naIP": ""
         }
         , null, 2), "utf-8")
 }
 
-const { token, guildId } = require('./config.json');
+const { token, guildId } = require(config_path);
 client.commands = new Collection();
 
 

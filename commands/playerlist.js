@@ -1,6 +1,8 @@
 const { SlashCommandBuilder } = require('discord.js');
 const { EmbedBuilder } = require('@discordjs/builders');
-const util = require('axios')
+const status = require('node-mcstatus')
+
+const { euIP, naIP } = require("../config.json")
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -22,36 +24,54 @@ module.exports = {
         embed.setTitle(`Nexia  •  Player list`)
         embed.setThumbnail("https://notcoded.needs.rest/r/nexia.png")
         if (region != null && region == "eu") {
-            eu = await util.get(`https://api.mcstatus.io/v2/status/java/nexia.mcserver.us:25565`)
-            if (eu.data.players.online > 0) {
-                const euList = eu.data.players.list ? "\n\`\`\`" + eu.data.players.list.map(p => ` ${p.name_clean} `).join('\r\n') + "\`\`\`" : "";
-                embed.setDescription(`**EU** Playerlist: ` + euList)
-            } else {
-                embed.setDescription(`**EU** Playerlist: \n\`\`\`No players\`\`\``)
-            }
+            status.statusJava(euip, 25565)
+                .then((eu) => {
+                    if (eu.players != null && eu.players.online > 0) {
+                        const euList = eu.players.list ? "\n\`\`\`" + eu.players.list.map(p => ` ${p.name_clean} `).join('\r\n') + "\`\`\`" : "";
+                        embed.setDescription(`**EU** Playerlist: ` + euList)
+                    } else {
+                        embed.setDescription(`**EU** Playerlist: \n\`\`\`No players\`\`\``)
+                    }
+                    interaction.reply({ embeds: [embed], ephemeral: true });
+                })
+
+
         } else if (region != null && region == "na") {
-            na = await util.get(`https://api.mcstatus.io/v2/status/java/nanexia.mcserver.us:25565`)
-            if (na.data.players.online > 0) {
-                const naList = na.data.players.list ? "\n\`\`\`" + na.data.players.list.map(p => ` ${p.name_clean} `).join('\r\n') + "\`\`\`" : "";
-                embed.setDescription(`**NA** Playerlist: ` + naList)
-            } else {
-                embed.setDescription(`**NA** Playerlist: \n\`\`\`No players\`\`\``)
-            }
+            status.statusJava(naIP, 25565)
+                .then((na) => {
+                    if (eu.players != null && eu.players.online > 0) {
+                        const euList = eu.players.list ? "\n\`\`\`" + eu.players.list.map(p => ` ${p.name_clean} `).join('\r\n') + "\`\`\`" : "";
+                        embed.setDescription(`**EU** Playerlist: ` + euList)
+                    } else {
+                        embed.setDescription(`**EU** Playerlist: \n\`\`\`No players\`\`\``)
+                    }
+                    interaction.reply({ embeds: [embed], ephemeral: true });
+                })
 
         } else {
-            eu = await util.get(`https://api.mcstatus.io/v2/status/java/nexia.mcserver.us:25565`)
             let euList = `\`\`\`No players\`\`\``
             let naList = euList
-            if (eu.data.players != null && eu.data.players.online > 0) {
-                euList = eu.data.players.list ? "\n\`\`\`" + eu.data.players.list.map(p => ` ${p.name_clean} `).join('\r\n') + "\`\`\`" : "";
-            }
-            na = await util.get(`https://api.mcstatus.io/v2/status/java/nanexia.mcserver.us:25565`)
-            if (na.data.players != null && na.data.players.online > 0) {
-                naList = na.data.players.list ? "\n\`\`\`" + na.data.players.list.map(p => ` ${p.name_clean} `).join('\r\n') + "\`\`\`" : "";
-            }
-            embed.setDescription(`**EU** Playerlist: ` + euList + `\n**NA** Playerlist: ` + naList)
-        }
 
-        await interaction.reply({ embeds: [embed], ephemeral: true });
+            status.statusJava(euIP, 25565)
+                .then((eu) => {
+                    if (eu.players != null && eu.players.online > 0) {
+                        euList = eu.players.list ? "\n\`\`\`" + eu.players.list.map(p => ` ${p.name_clean} `).join('\r\n') + "\`\`\`" : "";
+                    }
+                    status.statusJava(naIP, 25565)
+                        .then((na) => {
+                            if (na.players != null && na.players.online > 0) {
+                                naList = na.players.list ? "\n\`\`\`" + na.players.list.map(p => ` ${p.name_clean} `).join('\r\n') + "\`\`\`" : "";
+                            }
+                            embed.setDescription(`**EU** Playerlist: ` + euList + `\n**NA** Playerlist: ` + naList)
+                        }).catch(() => {
+                            embed.setDescription(`Please try running this command again later, as an error has occurred.`)
+                        })
+
+                }).catch(() => {
+                    embed.setDescription(`Please try running this command again later, as an error has occurred.`)
+                }).finally(() => {
+                    interaction.reply({ embeds: [embed], ephemeral: true });
+                })
+        }
     },
 };

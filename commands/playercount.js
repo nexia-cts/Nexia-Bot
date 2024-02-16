@@ -1,6 +1,8 @@
 const { SlashCommandBuilder } = require('discord.js');
 const { EmbedBuilder } = require('@discordjs/builders');
-const util = require('minecraft-server-util')
+const status = require('node-mcstatus')
+
+const { euIP, naIP } = require("../config.json")
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -22,23 +24,55 @@ module.exports = {
         embed.setTitle(`Nexia  •  Player count`)
         embed.setThumbnail("https://notcoded.needs.rest/r/nexia.png")
         if (region != null && region == "eu") {
-            eu = await util.status("nexia.mcserver.us")
-            if (eu != null) {
-                embed.setDescription(`There are currently \`${eu.players.online}/${eu.players.max}\`\nplayers online on **EU**.`)
-            }
+            status.statusJava(euIP, 25565)
+                .then((result) => {
+                    if (result.players != null) {
+                        embed.setDescription(`There are currently \`${result.players.online}/${result.players.max}\`\nplayers online on **EU**.`)
+                    } else {
+                        embed.setDescription(`Please try running this command again later, as an error has occurred.`)
+                    }
+                }).catch(() => {
+                    embed.setDescription(`Please try running this command again later, as an error has occurred.`)
+                }).finally(() => {
+                    interaction.reply({ embeds: [embed], ephemeral: true });
+                })
         } else if (region != null && region == "na") {
-            na = await util.status("nanexia.mcserver.us");
-            if (na != null) {
-                embed.setDescription(`There are currently \`${na.players.online}/${na.players.max}\`\nplayers online on **NA**.`)
-            }
+            status.statusJava(naIP, 25565)
+                .then((result) => {
+                    if (result.players != null) {
+                        embed.setDescription(`There are currently \`${result.players.online}/${result.players.max}\`\nplayers online on **NA**.`)
+                    } else {
+                        embed.setDescription(`Please try running this command again later, as an error has occurred.`)
+                    }
+                }).catch(() => {
+                    embed.setDescription(`Please try running this command again later, as an error has occurred.`)
+                }).finally(() => {
+                    interaction.reply({ embeds: [embed], ephemeral: true });
+                })
         } else {
-            eu = await util.status("nexia.mcserver.us");
-            na = await util.status("nanexia.mcserver.us");
-            if (eu != null && na != null) {
-                embed.setDescription(`There are currently \`${eu.players.online}/${eu.players.max}\` players online\non **EU**.\n\nAnd there are currently \`${na.players.online}/${na.players.max}\` online\non **NA**.`)
-            }
+            status.statusJava(euIP, 25565)
+                .then((eu) => {
+                    if (eu != null && eu.players != null) {
+                        status.statusJava(naIP, 25565)
+                            .then((na) => {
+                                if (na != null && na.players != null) {
+                                    embed.setDescription(`There are currently \`${eu.players.online}/${eu.players.max}\` players online on **EU**.\n\nAnd there are currently \`${na.players.online}/${na.players.max}\` online on **NA**.`)
+                                } else {
+                                    embed.setDescription(`Please try running this command again later, as an error has occurred.`)
+                                }
+                            }
+                            ).catch(() => {
+                                embed.setDescription(`Please try running this command again later, as an error has occurred.`)
+                            })
+                    } else {
+                        embed.setDescription(`Please try running this command again later, as an error has occurred.`)
+                    }
+                }
+                ).catch(() => {
+                    embed.setDescription(`Please try running this command again later, as an error has occurred.`)
+                }).finally(() => {
+                    interaction.reply({ embeds: [embed], ephemeral: true });
+                })
         }
-
-        await interaction.reply({ embeds: [embed], ephemeral: true });
-    },
+    }
 };

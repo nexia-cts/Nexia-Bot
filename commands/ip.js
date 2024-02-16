@@ -1,6 +1,8 @@
 const { EmbedBuilder } = require('@discordjs/builders');
 const { SlashCommandBuilder } = require('discord.js');
 
+const { euIP, naIP } = require("../config.json")
+
 module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('ip')
@@ -21,11 +23,11 @@ module.exports = {
 		embed.setFooter({ text: "Use /playercount :)" })
 		embed.setThumbnail("https://notcoded.needs.rest/r/nexia.png")
 		if (region != null && region == "eu") {
-			embed.setDescription("The IP of the **EU** server is:\n`nexia.mcserver.us`")
+			embed.setDescription(`The IP of the **EU** server is:\n\`${euIP}\``)
 		} else if (region != null && region == "na") {
-			embed.setDescription("The IP of the **NA** server is:\n`nanexia.mcserver.us`")
+			embed.setDescription(`The IP of the **NA** server is:\n\`${naIP}\``)
 		} else {
-			embed.setDescription("The IP of the **EU** server is:\n`nexia.mcserver.us`\n\nThe IP of the **NA** server is:\n`nanexia.mcserver.us`")
+			embed.setDescription(`The IP of the **EU** server is:\n\`${euIP}\`\n\nThe IP of the **NA** server is:\n\`${naIP}\``)
 		}
 
 		await interaction.reply({ embeds: [embed], ephemeral: true });

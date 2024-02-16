@@ -1,6 +1,8 @@
 const { SlashCommandBuilder, ButtonBuilder, ButtonStyle, ActionRowBuilder, PermissionFlagsBits, Attachment } = require('discord.js');
 const { EmbedBuilder } = require('@discordjs/builders');
 
+const { euIP, naIP, discordInvite } = require("../config.json")
+
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('sendmsg')
@@ -70,8 +72,8 @@ module.exports = {
             embed.setDescription(`Here you will get information about the server.`)
 
             embed.addFields(
-                { name: 'Minecraft', value: 'The IPs of the minecraft servers are:\n\n**EU**: `nexia.mcserver.us`\n**NA**: `nanexia.mcserver.us`\n**Version**: `Combat Test Snapshot 8c`\n\nYou may also use </playerlist:1097209692285046894> or </playercount:1096826365883449444>.' },
-                { name: 'Discord', value: 'The discord server invite link is:\n**https://discord.gg/uUC3zCZ2S7**' }
+                { name: 'Minecraft', value: `The IPs of the minecraft servers are:\n\n**EU**: \`${euIP}\`\n**NA**: \`${naIP}\`\n**Version**: \`Combat Test Snapshot 8c\`\n\nYou may also use </playerlist:1097209692285046894> or </playercount:1096826365883449444>.` },
+                { name: 'Discord', value: `The discord server invite link is:\n**${discordInvite}**` }
             )
 
             await interaction.channel.send({ embeds: [embed], files: ['./images/nexia-info.png'] });

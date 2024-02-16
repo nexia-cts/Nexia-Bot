@@ -70,7 +70,6 @@ const commands = [
             },
         ]
     },
-    /*
     {
         "name": 'sendmsg',
         "description": 'Sends a message in the current channel (developer only)',
@@ -99,7 +98,6 @@ const commands = [
 
         ]
     },
-    */
     /*
     {
         "name": 'test',
