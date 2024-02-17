@@ -91,6 +91,14 @@ const commands = [
                     {
                         "name": "Info",
                         "value": "info",
+                    },
+                    {
+                        "name": "How to Install CTS",
+                        "value": "installcts",
+                    },
+                    {
+                        "name": "How to Install Fabric CTS",
+                        "value": "installfabriccts",
                     }
                 ],
                 "required": true
