@@ -88,14 +88,14 @@ module.exports = {
             /////////////////////////////// TEXT 2/13 /////////////////////////////////////
 
             const text1 =
-                `## Vanilla Combat Test 8a and 8c Installation guide
+                `## Vanilla Combat Test 8a and 8c Installation Guide
 
 ### First a few important notes
 
 - The Combat Tests are forks of various versions made by jeb\_, this means that you will be playing with some bugs from back then.
 - Although since it's a fork, it's not on the Vanilla Launcher, so the installation is a bit different and slighly more complicated.
-- **CTS** means Combat Test Snapshots
-- There is an specific fabric version for CTS: **<https://github.com/rizecookey/fabric-installer/releases/tag/0.11.1>** for the installation of fabric head to <#1132688511305273416>, here you will also find a **Mod List** which we recommend.
+- **CTS** means Combat Test Snapshots.
+- There is a specific fabric version for CTS: **<https://github.com/rizecookey/fabric-installer/releases>** for the installation of fabric head over to <#1132688511305273416>, here you will also find a **Mod List** which we recommend.
 
 ## Windows/MacOS/Linux Installation (automatic)
 A new tool released called the **Combat Test Installer**, using this you can install any combat test snapshot you want using a GUI.
@@ -118,7 +118,7 @@ Download the version from: **<https://www.rizecookey.net/dl/file/combat-test-pat
 That version **fixes** the **Log4J vulnerability**, although if you want the version made by **jeb_**, here is the original link:
 ||<https://launcher.mojang.com/experiments/combat/ea08f7eb1f96cdc82464e27c0f95d23965083cfb/1_16_combat-6.zip>||
 
-### 8a: <https://drive.google.com/file/d/1oRmYoklkSu9QArdgnlMKy6MPMj0awk6G/view?usp=share_link>
+### 8a: <https://cdn.discordapp.com/attachments/369990015096455168/947864881028272198/1_16_combat-4.zip>
 
 ### Step 2
 
@@ -131,11 +131,11 @@ Press the open button after clicking on the link shown above, this should open t
             /////////////////////////////// TEXT 3/13 /////////////////////////////////////
 
             const text3 =
-                `After clicking on the open button you will be in the zip file, left click once on the folder named: \`1_16_combat-6\` **(8c)** or \`1_16_combat-4\` **(8a)**
+                `After clicking on the open button you will be in the zip file, left click once on the folder named: \`1_16_combat-6\` **(8c)** or \`1_16_combat-4\` **(8a)**.
 
 And copy it, by pressing \`CTRL + C\` at the same time.
 
-### Note: You don't copy the **.zip** file only the folder within it
+### Note: You don't copy the **.zip** file only the folder within it.
 
 Now click the same bar as shown in the following screenshot:`
 
@@ -150,19 +150,19 @@ Now click the same bar as shown in the following screenshot:`
 C:\\Users\\[YOUR_NAME]\\AppData\\Roaming\\.minecraft\\versions
 \`\`\`
 
-Now when you are in the versions folder paste the folder you copied earlier into the folder if done correctly your versions folder should now contain the \`1_16_combat-6/4\` version(s)
+Now when you are in the versions folder paste the folder you copied earlier into the folder if done correctly your versions folder should now contain the \`1_16_combat-6/4\` version(s).
 
 ### Step 3
 
 Launching the game.
 
-Open the Minecraft launcher, go to installations and check the following boxes:`
+Open the Minecraft Launcher, go to the Installations Tab and check the following boxes:`
 
             const text4_img = './images/how-to-install-cts/step3_mc_installations.png'
 
             /////////////////////////////// TEXT 5/13 /////////////////////////////////////
 
-            const text5 = `Create a new installation with \"pending 1.16_combat-6\" as version.`
+            const text5 = `Create a new installation with \"pending 1.16_combat-6 or pending 1.16_combat-4\" as version.`
 
             const text5_img = './images/how-to-install-cts/step3_mc_new-installation.png'
 
@@ -194,7 +194,7 @@ Navigate towards the **Play** Tab and make sure the **correct version** is selec
             const text8 =
                 `## Common Issues
 
-### 1: The version folder has 2 folders within each other in it`
+### 1: The version folder has 2 folders within each other in it:`
 
             const text8_img = './images/how-to-install-cts/common_issues1-2folders.png'
 
@@ -219,10 +219,9 @@ After navigating there and having copied the .json folder make sure it looks lik
             /////////////////////////////// TEXT 11/13 /////////////////////////////////////
 
             const text11 =
-                `### 2: "Sorry, unable to start minecraft"
+                `### 2: "Sorry, unable to start Minecraft:"
 
 As of now, it's unknown what exactly causes this issue however there is an fix for it.
-  
 Our suspicions are that it's an issue that Mojang has on their side within the launcher.`
 
             const text11_img = './images/how-to-install-cts/common_issues2-unable_to_start.png'
@@ -234,12 +233,12 @@ Our suspicions are that it's an issue that Mojang has on their side within the l
 
 **Prism Launcher: <https://prismlauncher.org/download/>** *(recommended)*
 
-If you want to use **MultiMC**, but don't have it installed, you can download it by following this YouTube tutorial:
+If you want to use **MultiMC**, but don't have it installed, you can download it by following this YouTube Tutorial:
 **<https://www.youtube.com/watch?v=Yrkpb0n4CRo>**
 
 **If you have already played Minecraft 1.16+ you won't need to follow the Java Installation part.**
 
-Now after having setup **MultiMC** or **PrismLauncher**, press add instance and make sure the following is selected:`
+Now after having setup **MultiMC** or **PrismLauncher**, press **Add Instance** and make sure the following is selected:`
 
             const text12_img = './images/how-to-install-cts/common_issues2-unable_to_start_fix.png'
 

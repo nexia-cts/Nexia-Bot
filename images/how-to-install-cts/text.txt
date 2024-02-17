@@ -1,11 +1,11 @@
-## Vanilla Combat Test 8a and 8c Installation guide
+## Vanilla Combat Test 8a and 8c Installation Guide
 
 ### First a few important notes
 
 - The Combat Tests are forks of various versions made by jeb\_, this means that you will be playing with some bugs from back then.
 - Although since it's a fork, it's not on the Vanilla Launcher, so the installation is a bit different and slighly more complicated.
-- **CTS** means Combat Test Snapshots
-- There is an specific fabric version for CTS: **<https://github.com/rizecookey/fabric-installer/releases/tag/0.11.1>** for the installation of fabric head to <#1132688511305273416>, here you will also find a **Mod List** which we recommend.
+- **CTS** means Combat Test Snapshots.
+- There is a specific fabric version for CTS: **<https://github.com/rizecookey/fabric-installer/releases>** for the installation of fabric head over to <#1132688511305273416>, here you will also find a **Mod List** which we recommend.
 
 ## Windows/MacOS/Linux Installation (automatic)
 A new tool released called the **Combat Test Installer**, using this you can install any combat test snapshot you want using a GUI.
@@ -26,7 +26,7 @@ Download the version from: **<https://www.rizecookey.net/dl/file/combat-test-pat
 That version **fixes** the **Log4J vulnerability**, although if you want the version made by **jeb_**, here is the original link:
 ||<https://launcher.mojang.com/experiments/combat/ea08f7eb1f96cdc82464e27c0f95d23965083cfb/1_16_combat-6.zip>||
 
-### 8a: <https://drive.google.com/file/d/1oRmYoklkSu9QArdgnlMKy6MPMj0awk6G/view?usp=share_link>
+### 8a: <https://cdn.discordapp.com/attachments/369990015096455168/947864881028272198/1_16_combat-4.zip>
 
 ### Step 2
 
@@ -34,11 +34,11 @@ Putting the version in your `.minecraft` folder.
 
 Press the open button after clicking on the link shown above, this should open the zip file directly.
 !!!!!!!!! END OF TEXT 2 !!!!!!!!! step2_download.png !!!!!! END OF TEXT 2 !!!!!!!!!
-After clicking on the open button you will be in the zip file, left click once on the folder named: `1_16_combat-6` **(8c)** or `1_16_combat-4` **(8a)**
+After clicking on the open button you will be in the zip file, left click once on the folder named: `1_16_combat-6` **(8c)** or `1_16_combat-4` **(8a)**.
 
 And copy it, by pressing `CTRL + C` at the same time.
 
-### Note: You don't copy the **.zip** file only the folder within it
+### Note: You don't copy the **.zip** file only the folder within it.
 
 Now click the same bar as shown in the following screenshot:
 !!!!!!!!! END OF TEXT 3 !!!!!!!!! step2_folder.png !!!!!! END OF TEXT 3 !!!!!!!!!
@@ -48,15 +48,15 @@ In that bar type `%appdata%`, this will direct you to the `Roaming` folder, and 
 C:\Users\[YOUR_NAME]\AppData\Roaming\.minecraft\versions
 ```
 
-now when you are in the versions folder paste the folder you copied earlier into the folder if done correctly your versions folder should now contain the `1_16_combat-6/4` version(s)
+Now when you are in the versions folder paste the folder you copied earlier into the folder if done correctly your versions folder should now contain the `1_16_combat-6/4` version(s).
 
 ### Step 3
 
 Launching the game.
 
-Open the Minecraft launcher, go to installations and check the following boxes:
+Open the Minecraft Launcher, go to Installations Tab and check the following boxes:
 !!!!!!!!! END OF TEXT 4 !!!!!!!!! step3_mc_installations.png !!!!!! END OF TEXT 4 !!!!!!!!!
-Create a new installation with "pending 1.16_combat-6" as version.
+Create a new installation with "pending 1.16_combat-6 or pending 1.16_combat-4" as version.
 !!!!!!!!! END OF TEXT 5 !!!!!!!!! step3_mc_new-installation.png !!!!!! END OF TEXT 5 !!!!!!!!!
 In order to find the correct version type in "pending" as shown below:
 !!!!!!!!! END OF TEXT 6 !!!!!!!!! step3_mc_find-version.png !!!!!! END OF TEXT 6 !!!!!!!!!
@@ -73,7 +73,7 @@ Navigate towards the **Play** Tab and make sure the **correct version** is selec
 !!!!!!!!! END OF TEXT 7 !!!!!!!!! step3_mc_play.png !!!!!! END OF TEXT 7 !!!!!!!!!
 ## Common Issues
 
-### 1: The version folder has 2 folders within each other in it
+### 1: The version folder has 2 folders within each other in it:
 !!!!!!!!! END OF TEXT 8 !!!!!!!!! common_issues1-2folders.png !!!!!! END OF TEXT 8 !!!!!!!!!
 In order to fix this, copy `(CTRL + C)` the **.json** file and **navigate towards** the folder before where the **.json** file is.
 
@@ -83,22 +83,21 @@ Paste the **.json** in this folder and delete the folder where you just came fro
 
 **Note: ** ***First*** copy the file then delete the folder!
 !!!!!!!!! END OF TEXT 10 !!!!!!!!! common_issues1-2folders_fix2.png !!!!!! END OF TEXT 10 !!!!!!!!!
-### 2: "Sorry, unable to start minecraft"
+### 2: "Sorry, unable to start Minecraft:"
 
 As of now, it's unknown what exactly causes this issue however there is an fix for it.
-
 Our suspicions are that it's an issue that Mojang has on their side within the launcher.
 !!!!!!!!! END OF TEXT 11 !!!!!!!!! common_issues2-unable_to_start.png !!!!!! END OF TEXT 11 !!!!!!!!!
 To fix this issue you will need to install either **MultiMC** or **Prism Launcher**.
 
 **Prism Launcher: <https://prismlauncher.org/download/>**
 
-If you want to use **MultiMC**, but don't have it installed, you can download it by following this YouTube tutorial:
+If you want to use **MultiMC**, but don't have it installed, you can download it by following this YouTube Tutorial:
 **<https://www.youtube.com/watch?v=Yrkpb0n4CRo>**
 
 **If you have already played Minecraft 1.16+ you won't need to follow the Java Installation part.**
 
-Now after having setup **MultiMC** or **PrismLauncher**, press add instance and make sure the following is selected:
+Now after having setup **MultiMC** or **PrismLauncher**, press **Add Instance** and make sure the following is selected:
 !!!!!!!!! END OF TEXT 12 !!!!!!!!! common_issues2-unable_to_start_fix.png !!!!!! END OF TEXT 12 !!!!!!!!!
 Then press **"OK"** and **double click** the instance to launch it.
 
