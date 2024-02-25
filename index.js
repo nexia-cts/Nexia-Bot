@@ -92,15 +92,6 @@ client.on(Events.InteractionCreate, async interaction => {
             embed.setDescription(`Requested by\n<@${interaction.user.id}>`)
             embed.setThumbnail("https://notcoded.needs.rest/r/nexia.png")
 
-            // TODO: remove this once servers are back up, (also uncomment actual code)
-            embed.setFooter({ text: "Servers unavailable" })
-            embed.setDescription(`The servers are currently down for a host change.\nYou cannot use this to ping other people until the servers are back up.`)
-
-            await interaction.reply({ embeds: [embed], ephemeral: true });
-            // (just revert commit, ez)
-
-
-            /*
             setTimeout(() => buttonCooldown.delete(interaction.user.id), cooldown)
             if (buttonCooldown.has(interaction.user.id)) {
 
@@ -120,7 +111,6 @@ client.on(Events.InteractionCreate, async interaction => {
                 await interaction.deferUpdate();
                 buttonCooldown.add(interaction.user.id)
             }
-            */
         }
 
         if (interaction.customId === "discord" || interaction.customId === "minecraft") {
