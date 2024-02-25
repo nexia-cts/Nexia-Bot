@@ -15,7 +15,9 @@ if (!fs.existsSync(config_path)) {
             "clientId": "",
             "discordInvite": "",
             "euIP": "",
-            "naIP": ""
+            "euIPport": "25565",
+            "naIP": "",
+            "naIPport": "25565"
         }
         , null, 2), "utf-8")
 }
