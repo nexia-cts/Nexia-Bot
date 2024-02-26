@@ -24,7 +24,7 @@ module.exports = {
         embed.setTitle(`Nexia  •  Player list`)
         embed.setThumbnail("https://notcoded.needs.rest/r/nexia.png")
         if (region != null && region == "eu") {
-            status.statusJava(euip, euIPport)
+            status.statusJava(euIP, euIPport)
                 .then((eu) => {
                     if (eu.players != null && eu.players.online > 0) {
                         const euList = eu.players.list ? "\n\`\`\`" + eu.players.list.map(p => ` ${p.name_clean} `).join('\r\n') + "\`\`\`" : "";
