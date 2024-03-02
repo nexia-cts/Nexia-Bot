@@ -57,6 +57,7 @@ module.exports = {
                             .then((na) => {
                                 if (na != null && na.players != null) {
                                     embed.setDescription(`There are currently \`${eu.players.online}/${eu.players.max}\` players online on **EU**.\n\nAnd there are currently \`${na.players.online}/${na.players.max}\` online on **NA**.`)
+                                    interaction.reply({ embeds: [embed], ephemeral: true });
                                 } else {
                                     embed.setDescription(`Please try running this command again later, as an error has occurred.`)
                                 }
@@ -70,8 +71,6 @@ module.exports = {
                 }
                 ).catch(() => {
                     embed.setDescription(`Please try running this command again later, as an error has occurred.`)
-                }).finally(() => {
-                    interaction.reply({ embeds: [embed], ephemeral: true });
                 })
         }
     }

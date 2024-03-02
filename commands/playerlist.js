@@ -47,7 +47,6 @@ module.exports = {
                     }
                     interaction.reply({ embeds: [embed], ephemeral: true });
                 })
-
         } else {
             let euList = `\`\`\`No players\`\`\``
             let naList = euList
@@ -63,14 +62,12 @@ module.exports = {
                                 naList = na.players.list ? "\n\`\`\`" + na.players.list.map(p => ` ${p.name_clean} `).join('\r\n') + "\`\`\`" : "";
                             }
                             embed.setDescription(`**EU** Playerlist: ` + euList + `\n**NA** Playerlist: ` + naList)
+                            interaction.reply({ embeds: [embed], ephemeral: true });
                         }).catch(() => {
                             embed.setDescription(`Please try running this command again later, as an error has occurred.`)
                         })
-
                 }).catch(() => {
                     embed.setDescription(`Please try running this command again later, as an error has occurred.`)
-                }).finally(() => {
-                    interaction.reply({ embeds: [embed], ephemeral: true });
                 })
         }
     },
