@@ -133,10 +133,10 @@ client.on(Events.InteractionCreate, async interaction => {
                     { name: '**3. No advertising.**', value: 'Advertising anything, including other Minecraft servers, is not permitted.' },
                     { name: '**4. No encouraging of illegal activity.**', value: 'Self-explanatory.' },
                     { name: '**5. No interrupting other player\'s fights.**', value: 'Please do not interrupt other player\'s fights, focusing on killing certain players is not allowed too.' },
-                    { name: '**6. No spamming/filling up chat**', value: 'Please do not spam the chat, nor fill up the chat.' },
+                    { name: '**6. No spamming/filling up chat.**', value: 'Please do not spam the chat, nor fill up the chat.' },
                     { name: '**7. No stalling/combat logging.**', value: 'You may not stall (running away for a long time), or combat log (logging out when you\'re low).' },
-                    { name: '**8. No bedrock bridging**', value: 'You may not swap weapons in away way to gain mixed stats and therefore more damage/reach/attack speed.' },
-                    { name: '**9. No bedrock bridging**', value: 'You may not use bedrock bridging or reach-around bridging, **NO EXCEPTIONS**.' }
+                    { name: '**8. No weapon swapping.**', value: 'You may not swap weapons in away way to gain mixed stats and therefore more damage/reach/attack speed.' },
+                    { name: '**9. No bedrock bridging.**', value: 'You may not use bedrock bridging or reach-around bridging, **NO EXCEPTIONS**.' }
                 )
             }
 
