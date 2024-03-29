@@ -103,7 +103,8 @@ A new tool released called the **Combat Test Installer**, using this you can ins
 Download the tool from: **https://github.com/nexia-cts/combat-test-installer/releases**
 Requirement: **[Java 8](<https://www.java.com/download/ie_manual.jsp>) or later**`
 
-            const text1_img = './images/how-to-install-cts/combat-test-installer.png'
+            const text1_img = './images/how-to-install-cts/installer_opened_vanilla.png'
+            const text1_img2 = './images/how-to-install-cts/installer_installed_box_vanilla.png'
 
             /////////////////////////////// TEXT 2/13 /////////////////////////////////////
             const text2 =
@@ -118,7 +119,7 @@ Download the version from: **<https://www.rizecookey.net/dl/file/combat-test-pat
 That version **fixes** the **Log4J vulnerability**, although if you want the version made by **jeb_**, here is the original link:
 ||<https://launcher.mojang.com/experiments/combat/ea08f7eb1f96cdc82464e27c0f95d23965083cfb/1_16_combat-6.zip>||
 
-### 8a: <https://cdn.discordapp.com/attachments/369990015096455168/947864881028272198/1_16_combat-4.zip>
+### 8a: <https://drive.google.com/file/d/1oRmYoklkSu9QArdgnlMKy6MPMj0awk6G/view>
 
 ### Step 2
 
@@ -253,6 +254,7 @@ If any more issues arise please ask in <#1041553023052296224> or create a <#1106
             // START: Send messages
 
             await interaction.channel.send({ content: text1, files: [text1_img] });
+            await interaction.channel.send({ files: [text1_img2] });
             await interaction.channel.send({ content: text2, files: [text2_img] });
             await interaction.channel.send({ content: text3, files: [text3_img] });
             await interaction.channel.send({ content: text4, files: [text4_img] });
